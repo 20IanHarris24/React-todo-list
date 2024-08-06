@@ -1,0 +1,46 @@
+.todoframe{
+    
+    background-color: rgb(249, 250, 230);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    /* height: 100vh; */
+}
+
+.card-container{
+
+    background-color: lavender;
+    border: 3px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+
+    margin: 0.5rem;
+    padding: 3px;
+    width: 30vh;
+    
+
+
+
+}
+
+.title-container{
+
+    border: 1.5px dashed blue;
+    border-radius: 3px;
+    display:flex;
+    flex-direction: column;
+
+
+
+}
+
+.status{
+
+    border: 1.5px dashed green;
+    border-radius: 3px;
+    display:flex;
+    flex-direction: column;
+
+}
