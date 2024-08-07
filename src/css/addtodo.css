@@ -1,6 +1,6 @@
 .addtodo{
     display:flex;
-    
+
 
 }
 
@@ -16,7 +16,7 @@
 
 
  
-.form{
+.form-input{
 
     background-color: lavender;
     border: 3px solid black;

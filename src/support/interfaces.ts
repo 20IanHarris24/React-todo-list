@@ -6,20 +6,18 @@ export interface ITodo    //object interface for todo card
     title: string;
     description: string;
     date: string;
-    priority: string,
-    complete: string,
-    author: string,
+    priority: string;
+    complete: string;
+    author: string;
 }
 
 export interface IAddtodo
 
 {
-
-    id: string;
+    id:number;
     title: string;
     description: string;
-    date: string;
-    priority: string,
-    complete: string,
-    author: string,
+    author: string;
+    priority: string;
+    completed: boolean;
 }

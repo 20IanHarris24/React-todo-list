@@ -1,44 +1,58 @@
-import { ChangeEventHandler, FormEventHandler, ReactElement, useState } from "react";
+import { ReactElement, useState } from "react";
+import "../support/interfaces"
+import { IAddtodo} from "../support/interfaces";
 
 
-export function Addtodo () : ReactElement{
+interface IAddtodoProps {
 
-    const [inputTitle, setTitle] = useState<string>("");
-    const [inputDescription, setDescription] = useState<string>("");
-    const [inputAuthor, setAuthor] = useState<string>("");
-    /* const [prio, setprio] = useState(null); */
-    /* const [title, settitle] = useState(null); */
+    addTodo: (addtodo: IAddtodo) => void;
+}
+
+export function Addtodo ({addTodo} : IAddtodoProps) : ReactElement {
+
+    const [title, setTitle] = useState<string>("");
+    const [description, setDescription] = useState<string>("");
+    const [author, setAuthor] = useState<string>("");
+    const [priority, setPriority] = useState<string>('none');
+    const [completed] = useState<boolean>(false);
 
 
-   const handleOnSelect = () => {
 
-   };
+    const handleOnSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+        e.preventDefault();
 
+        const newTodo: IAddtodo = {
 
-   const handleOnSubmit = () => {
-
+            id: Date.now(),
+            title,
+            description,
+            author,
+            priority,
+            completed,
+        };
+        
+        /* addTodo(newTodo); */
+        console.log(newTodo);
    };
       
 return <section className="addtodo container row"> 
      <article className="form-container">
         
-       <form className ="form col">
-            <label className ="label todo-title">Title
-               <input className ="input todo-input" type="text" id="title" autoCorrect="off" onChange={(e) => {setTitle(e.target.value);}} value={inputTitle}/>
+       <form className ="form-input col" onSubmit={handleOnSubmit}>
+            <label className ="todo-title">Title
+               <input className ="todo-input" type="text" id="title" autoCorrect="off" onChange={(e) => {setTitle(e.target.value);}} value={title}/>
             </label>
 
-            <label className ="label todo-description">Description
-              <input className ="input todo-description-input" type="text" id="description" autoCorrect="off" onChange={(e) => {setDescription(e.target.value);}} value={inputDescription} />
+            <label className ="todo-description">Description
+              <input className ="todo-description-input" type="text" id="description" autoCorrect="off" onChange={(e) => {setDescription(e.target.value);}} value={description} />
             </label>
 
-            <label className ="label todo-author">Author
-              <input className ="input todo-author-input" type="text" id="description" autoCorrect="off" onChange={(e) => {setAuthor(e.target.value);}} value={inputAuthor}/>
+            <label className ="todo-author">Author
+              <input className ="input todo-author-input" type="text" id="description" autoCorrect="off" onChange={(e) => {setAuthor(e.target.value);}} value={author}/>
             </label>
 
-            {<Date/>}
-
-            <label className ="label todo-prio" onChange={handleOnSelect}>Priority
-                    <select id="prio" name="prio">
+            <label className ="todo-prio">Priority
+                    <select id="prio" name="prio" onChange={(e) => {setPriority(e.target.value);}} value={priority}>
                         <option value="none">none</option>
                         <option value="low">low</option>
                         <option value="medium">medium</option>
@@ -46,12 +60,12 @@ return <section className="addtodo container row">
                     </select>
             </label>
 
-            <label className ="label todo-complete">Complete
-            <input className ="btn btn-press btn-style-std disabled" type="radio" onChange={handleOnSelect}></input>
+            <label className ="todo-complete">Complete
+            <input className ="btn-press btn-style-std disabled" type="radio"  defaultChecked = {completed}/>
             </label>
 
-            <label className ="label todo-submit">Submit
-            <button className ="btn btn-press btn-style-std disabled" type="submit" onSubmit={handleOnSubmit} >Done</button>
+            <label className ="todo-submit">Submit
+            <button className ="btn-press btn-style-std disabled" type="submit">Done</button>
             </label>
            
         </form>
