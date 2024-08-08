@@ -1,17 +1,42 @@
-/* import { TodoList } from "./components"; */
-import { Addtodo } from "./components";
+import { useState } from "react";
+import { ReactElement } from "react";
+import { AddTodo, ListTodos} from "./index";
+import { preloadedtodos } from "./components/data";
+import { ITodo } from "./components/interfaces";
 
 
 
 
 
-export function App() {
-  return (
-    <>
-    {/* <TodoList cards={cards}/> */}
-    <Addtodo addTodo={Addtodo}/>
 
-      {/* <h1>This is the App component</h1> */}
-    </>
-  );
+
+
+
+export function App() : ReactElement {
+
+const [todocards, setTodocards] = useState<ITodo[]>(preloadedtodos);
+
+const addTodo = (todocard: ITodo) => {setTodocards([todocard, ...todocards])
+};
+
+
+
+return (
+
+        <>
+        <ListTodos todos = {todocards}/>
+        <AddTodo addTodo = {addTodo}/>
+
+    
+    
+    
+    
+    
+        </>
+
+
+
+    );
+ 
+  
 }

@@ -2,51 +2,52 @@ import { ITodo } from "./interfaces";
 
 
 
-export const cards: ITodo[] = [
+
+export const preloadedtodos: ITodo[] = [
     
     {
 
 
-        id: "1",
+        id: 1,
+        date: "22/07/2022",
         title: "shopping for dinner.",
         description: "buy ingredients for Porchetta.",
-        date: "21/07/2022",
         priority: "high",
-        complete: "set a radiobutton or tickbox",
-        author: "Dan the can",
+        completed: false,
+        author: "Danny Canny",
     },
 
     {
 
-        id: "2",
+        id: 2,
+        date: "23/07/2022",
         title: "book bike service.",
         description: "10km service by end of the month",
-        date: "21/07/2022",
         priority: "medium",
-        complete: "set a radiobutton or tickbox",
-        author: "Dan the can",
+        completed: false,
+        author: "Danny Canny",
     },
 
     {
 
-        id: "3",
+        id: 3,
+        date: "23/07/2022",
         title: "Meet with John",
         description: "suggest the dog & duck pub",
-        date: "21/07/2022",
         priority: "none",
-        complete: "set a radiobutton or tickbox",
-        author: "Olly the wally",
+        completed: false,
+        author: "Olly Wally",
     },
 
     {
 
-        id: "4",
+        id: 4,
+        date: "25/07/2022",
         title: "see the football game with suzy",
         description: "ring the football club for tickets",
-        date: "21/07/2022",
         priority: "medium",
-        complete: "set a radiobutton or tickbox",
-        author: "Olly the wally",
+        completed: false,
+        author: "Olly Wally",
     },
 
 

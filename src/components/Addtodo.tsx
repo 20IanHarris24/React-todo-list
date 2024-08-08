@@ -1,14 +1,18 @@
 import { ReactElement, useState } from "react";
-import "../support/interfaces"
-import { IAddtodo} from "../support/interfaces";
+
+
+import { ITodo } from "./interfaces";
+import "../css/addtodo.css"
+
+
 
 
 interface IAddtodoProps {
 
-    addTodo: (addtodo: IAddtodo) => void;
+    addTodo: (addtodo: ITodo) => void;
 }
 
-export function Addtodo ({addTodo} : IAddtodoProps) : ReactElement {
+export function AddTodo ({addTodo} : IAddtodoProps) : ReactElement {
 
     const [title, setTitle] = useState<string>("");
     const [description, setDescription] = useState<string>("");
@@ -21,9 +25,10 @@ export function Addtodo ({addTodo} : IAddtodoProps) : ReactElement {
     const handleOnSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
         e.preventDefault();
 
-        const newTodo: IAddtodo = {
+        const newTodo: ITodo = {
 
             id: Date.now(),
+            date: Date.now(),
             title,
             description,
             author,
@@ -31,7 +36,7 @@ export function Addtodo ({addTodo} : IAddtodoProps) : ReactElement {
             completed,
         };
         
-        /* addTodo(newTodo); */
+        addTodo(newTodo);
         console.log(newTodo);
    };
       

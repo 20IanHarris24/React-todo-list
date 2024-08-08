@@ -1,6 +1,15 @@
-export function Timestamp ():{
+import { ReactElement } from "react"
 
-    const Date = 
 
-    return <Timestamp date={Date} />
+
+
+
+export function Timestamp (): ReactElement{
+
+    const timestamp: number = Date.now();
+    const date = new Date(timestamp);
+
+    console.log(date.getDate.toString);
+
+    return <Timestamp timestamp = {Date} />
 }

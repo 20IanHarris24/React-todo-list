@@ -22,7 +22,7 @@ Remember here to use state und utilize props. Also place the state(s) in the app
 
 - As a user I want a timestamp to be added to my new todos in order better se how old all the todos are.
 
-- As a user I want to be able to put my name _(author of a todo)_ on a todo, so everyone in my family can add their own todos to the todo list.
+ 
 
 ### Step 2 - Add router
 
