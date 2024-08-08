@@ -9,7 +9,7 @@ export const preloadedtodos: ITodo[] = [
 
 
         id: 1,
-        date: "22/07/2022",
+        date: "Jul 22 2022 09:55.23",
         title: "shopping for dinner.",
         description: "buy ingredients for Porchetta.",
         priority: "high",
@@ -20,7 +20,7 @@ export const preloadedtodos: ITodo[] = [
     {
 
         id: 2,
-        date: "23/07/2022",
+        date: "Jul 23 2022 13:22:16",
         title: "book bike service.",
         description: "10km service by end of the month",
         priority: "medium",
@@ -31,7 +31,7 @@ export const preloadedtodos: ITodo[] = [
     {
 
         id: 3,
-        date: "23/07/2022",
+        date: "Jul 23 2022 13:35:22",
         title: "Meet with John",
         description: "suggest the dog & duck pub",
         priority: "none",
@@ -42,7 +42,7 @@ export const preloadedtodos: ITodo[] = [
     {
 
         id: 4,
-        date: "25/07/2022",
+        date: "Jul 25 2022 21:40:01",
         title: "see the football game with suzy",
         description: "ring the football club for tickets",
         priority: "medium",

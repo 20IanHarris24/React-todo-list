@@ -1,4 +1,5 @@
 import { ReactElement, useState } from "react";
+import { Timestamp } from "./Timestamp";
 
 
 import { ITodo } from "./interfaces";
@@ -28,7 +29,7 @@ export function AddTodo ({addTodo} : IAddtodoProps) : ReactElement {
         const newTodo: ITodo = {
 
             id: Date.now(),
-            date: Date.now(),
+            date: Timestamp(),
             title,
             description,
             author,

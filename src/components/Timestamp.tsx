@@ -1,15 +1,15 @@
-import { ReactElement } from "react"
 
 
 
 
 
-export function Timestamp (): ReactElement{
+
+export function Timestamp(){
 
     const timestamp: number = Date.now();
     const date = new Date(timestamp);
+    let dateString  = (date.toString().substring(3,24));
+    console.log(dateString);
 
-    console.log(date.getDate.toString);
-
-    return <Timestamp timestamp = {Date} />
-}
+    return dateString;
+};
