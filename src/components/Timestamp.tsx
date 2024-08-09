@@ -1,9 +1,3 @@
-
-
-
-
-
-
 export function Timestamp(){
 
     const timestamp: number = Date.now();

@@ -1,7 +1,5 @@
-import { useState } from "react";
-import { ReactElement } from "react";
-import { AddTodo, ListTodos} from "./index";
-import { preloadedtodos } from "./components/data";
+import { ReactElement, useState } from "react";
+import { AddTodo, ListTodos, preloadedtodos} from "./components/index";
 import { ITodo } from "./components/interfaces";
 
 
@@ -16,7 +14,12 @@ export function App() : ReactElement {
 
 const [todocards, setTodocards] = useState<ITodo[]>(preloadedtodos);
 
-const addTodo = (todocard: ITodo) => {setTodocards([todocard, ...todocards])
+const addTodo = (todocard: ITodo) => {
+  setTodocards([todocard, ...todocards])
+};
+
+const handleOnClick = (todo: ITodo): void => {
+  setTodocards(todocards.filter((t) => t.id !== todo.id));
 };
 
 
@@ -24,18 +27,9 @@ const addTodo = (todocard: ITodo) => {setTodocards([todocard, ...todocards])
 return (
 
         <>
-        <ListTodos todos = {todocards}/>
         <AddTodo addTodo = {addTodo}/>
-
-    
-    
-    
-    
-    
+        <ListTodos todos = {todocards} onTodoClick={handleOnClick}/>
         </>
-
-
-
     );
  
   

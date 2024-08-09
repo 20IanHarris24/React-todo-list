@@ -1,8 +1,13 @@
-import { ReactElement, useState } from "react";
-import { Timestamp } from "./Timestamp";
+/* Addtodo Component that adds a todo card to a list */
 
 
-import { ITodo } from "./interfaces";
+
+
+import {ChangeEventHandler, FormEventHandler, MouseEventHandler, ReactElement, useState } from "react";
+import { dropdownchoices, Timestamp, Radiobtn } from ".";
+import { ITodo } from ".";
+import { Textinput, Dropdown, Button } from ".";
+
 import "../css/addtodo.css"
 
 
@@ -19,16 +24,21 @@ export function AddTodo ({addTodo} : IAddtodoProps) : ReactElement {
     const [description, setDescription] = useState<string>("");
     const [author, setAuthor] = useState<string>("");
     const [priority, setPriority] = useState<string>('none');
-    const [completed] = useState<boolean>(false);
+    const [completed, setCompleted ] = useState<boolean>(false);
+   
+
+    const handleOnChange : ChangeEventHandler<HTMLInputElement> = () => {
+       
+        setCompleted(!completed); 
+    }
 
 
-
-    const handleOnSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+    const handleOnSubmit: FormEventHandler<HTMLFormElement> = (e) => {
         e.preventDefault();
 
         const newTodo: ITodo = {
 
-            id: Date.now(),
+            id: Date.now(),  //millesecond date representation used as the id: key
             date: Timestamp(),
             title,
             description,
@@ -39,44 +49,60 @@ export function AddTodo ({addTodo} : IAddtodoProps) : ReactElement {
         
         addTodo(newTodo);
         console.log(newTodo);
-   };
+
+};
       
-return <section className="addtodo container row"> 
+    const handleOnClearClick: MouseEventHandler<HTMLButtonElement> = () => {
+    
+            setTitle("");
+            setDescription("");
+            setAuthor("");
+            setPriority('none');
+            setCompleted(false);
+        };
+
+
+
+
+return <section className="addtodo "> 
      <article className="form-container">
         
-       <form className ="form-input col" onSubmit={handleOnSubmit}>
-            <label className ="todo-title">Title
-               <input className ="todo-input" type="text" id="title" autoCorrect="off" onChange={(e) => {setTitle(e.target.value);}} value={title}/>
+       <form className ="form-input" onSubmit={handleOnSubmit}>
+            <label className ="todo-title">
+                <Textinput  label="Title" type="text" onChange={(e) => {setTitle(e.target.value);}} value={title}/>
             </label>
 
-            <label className ="todo-description">Description
-              <input className ="todo-description-input" type="text" id="description" autoCorrect="off" onChange={(e) => {setDescription(e.target.value);}} value={description} />
+            <label className ="todo-description">
+              <Textinput  label="Description " type="textarea"  onChange={(e) => {setDescription(e.target.value);}} value={description} />
             </label>
 
-            <label className ="todo-author">Author
-              <input className ="input todo-author-input" type="text" id="description" autoCorrect="off" onChange={(e) => {setAuthor(e.target.value);}} value={author}/>
+            <label className ="todo-author">
+              <Textinput label="Author" type="text" onChange={(e) => {setAuthor(e.target.value);}} value={author}/>
             </label>
 
-            <label className ="todo-prio">Priority
-                    <select id="prio" name="prio" onChange={(e) => {setPriority(e.target.value);}} value={priority}>
-                        <option value="none">none</option>
-                        <option value="low">low</option>
-                        <option value="medium">medium</option>
-                        <option value="high">high</option>
-                    </select>
+            <label className ="todo-prio">
+                    <Dropdown label="Priority" onChange={(e) => {setPriority(e.target.value);}} options={dropdownchoices} value={priority} />
             </label>
 
-            <label className ="todo-complete">Complete
-            <input className ="btn-press btn-style-std disabled" type="radio"  defaultChecked = {completed}/>
+            <label className ="todo-complete custom-radiobtn">
+                <Radiobtn label="Complete" type="radio"  checked={completed} onChange={handleOnChange}/>
             </label>
 
-            <label className ="todo-submit">Submit
-            <button className ="btn-press btn-style-std disabled" type="submit">Done</button>
+            <label className ="todo-submit">
+                <Button label="Add"  type="submit"></Button>
             </label>
+
+
+            <div className="actions">
+            <div className="empty-space"></div>
+                <div className="action-buttons">
+                <Button label="Clear" onClick={handleOnClearClick} type="button" />
+              </div>
+            </div>
            
         </form>
     </article>               
                  
     </section>
-
+  
 }

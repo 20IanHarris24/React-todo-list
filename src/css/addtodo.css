@@ -1,5 +1,8 @@
 .addtodo{
+    align-items: center;
     display:flex;
+    height:100vh;
+    justify-content: center;
 
 
 }
@@ -8,7 +11,7 @@
 .form-container{
     display: flex;
        
-    height: 40vh;
+    
 
 
 

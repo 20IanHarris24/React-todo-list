@@ -1,6 +1,4 @@
-import { ITodo } from "./interfaces";
-
-
+import { IDropdown, ITodo } from "./interfaces";
 
 
 export const preloadedtodos: ITodo[] = [
@@ -49,8 +47,33 @@ export const preloadedtodos: ITodo[] = [
         completed: false,
         author: "Olly Wally",
     },
-
-
-    
-
 ];
+
+
+
+
+export const dropdownchoices: IDropdown[] = [
+    {
+      id: "1",
+      label: "none",
+      value: "none",
+    },
+
+    {
+      id: "2",
+      label: "low",
+      value: "low",
+    },
+
+    {
+      id: "3",
+      label: "medium",
+      value: "medium",
+    },
+    
+    {
+      id: "4",
+      label: "high",
+      value: "high",
+    },
+]

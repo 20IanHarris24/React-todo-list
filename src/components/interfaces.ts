@@ -1,15 +1,12 @@
-/* export interface IAddtodocard //object interface for live todo cards
+export interface IDropdown {       //object interface for controlling dropdown options
+    id: string;
+    label: string;
+    value: string;
+  }
 
-{
-    id: number;
-    date: string;
-    title: string;
-    description: string;
-    author: string;
-    priority: string;
-    completed: boolean;
-} */
-export interface ITodo    //object interface for pre-loaded todo cards
+
+
+export interface ITodo    //object interface for pre-loaded and future todo cards
 
 {
     id: number;
